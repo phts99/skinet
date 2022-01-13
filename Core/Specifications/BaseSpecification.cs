@@ -1,10 +1,10 @@
 using System.Linq.Expressions;
 
-namespace Core.Especifications
+namespace Core.Specifications
 {
-    public class BaseEspecification<T> : IEspecification<T>
+    public class BaseSpecification<T> : ISpecification<T>
     {
-        public BaseEspecification(Expression<Func<T, bool>> criteria)
+        public BaseSpecification(Expression<Func<T, bool>> criteria)
         {
             Criteria = criteria;
         }
