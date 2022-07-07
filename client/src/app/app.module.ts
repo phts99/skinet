@@ -1,12 +1,13 @@
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { NavBarComponent } from './core/nav-bar/nav-bar.component';
 
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
+import { CoreModule } from './core/core.module';
+import { ShopModule } from './shop/shop.module';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,9 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
+    CoreModule,
+    ShopModule
   ],
   providers: [],
   bootstrap: [AppComponent]
