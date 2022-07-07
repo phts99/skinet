@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
+
 import { CommonModule } from '@angular/common';
+
 import { ShopComponent } from './shop.component';
 
 @NgModule({
@@ -8,7 +10,8 @@ import { ShopComponent } from './shop.component';
   ],
   imports: [
     CommonModule
-  ]
+  ],
+  exports: [ShopComponent]
 })
 
 export class ShopModule { }
