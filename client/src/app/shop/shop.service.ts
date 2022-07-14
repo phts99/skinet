@@ -8,7 +8,7 @@ import { IPagination } from '../shared/models/pagination';
 })
 
 export class ShopService {
-  baseUrl = 'https;//lacalhost:5001/api/';
+  baseUrl = 'https://localhost:5001/api/';
 
   constructor(private http: HttpClient) { }
 
