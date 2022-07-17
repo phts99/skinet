@@ -14,16 +14,27 @@ import { IType } from '../shared/models/productType';
 
 export class ShopComponent implements OnInit {
   products: IProduct[];
+  brands: IBrand[];
 
   constructor(private shopService: ShopService) { }
 
   ngOnInit(): void {
     this.getProducts();
+    this.getBrands();
   }
 
   getProducts() {
     this.shopService.getProducts().subscribe(response => {
       this.products = response.data;
+    },
+    (error) => {
+      console.log(error);
+    });
+  }
+
+  getBrands() {
+    this.shopService.getBrands().subscribe(response => {
+      this.brands = response;
     },
     (error) => {
       console.log(error);
