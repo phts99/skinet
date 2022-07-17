@@ -15,12 +15,14 @@ import { IType } from '../shared/models/productType';
 export class ShopComponent implements OnInit {
   products: IProduct[];
   brands: IBrand[];
+  types: IType[];
 
   constructor(private shopService: ShopService) { }
 
   ngOnInit(): void {
     this.getProducts();
     this.getBrands();
+    this.getTypes();
   }
 
   getProducts() {
@@ -35,6 +37,15 @@ export class ShopComponent implements OnInit {
   getBrands() {
     this.shopService.getBrands().subscribe(response => {
       this.brands = response;
+    },
+    (error) => {
+      console.log(error);
+    });
+  }
+
+  getTypes() {
+    this.shopService.getBrands().subscribe(response => {
+      this.types = response;
     },
     (error) => {
       console.log(error);
