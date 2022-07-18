@@ -22,6 +22,10 @@ export class ShopService {
       params = params.append('brandId', brandId.toString());
     }
 
+    if (typeId) {
+      params = params.append('typeId', typeId.toString());
+    }
+
     return this.http.get<IPagination>(this.baseUrl + 'products', {observe: 'response', params})
       .pipe(
         map(response => {
