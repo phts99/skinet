@@ -72,17 +72,12 @@
 
       <!--Pagination-->
       <div class="d-flex justify-content-center" *ngIf="totalCount > 0">
-        <pagination
-          [boundaryLinks]="true"
-          [totalItems]="this.totalCount"
-          [itemsPerPage]="this.shopParams.pageSize"
+        <app-pager
+          [pageSize]="shopParams.pageSize"
+          [totalCount]="totalCount"
           (pageChanged)="onPageChanged($event)"
-          previousText="&lsaquo;"
-          nextText="&rsaquo;"
-          firstText="&laquo;"
-          lastText="&raquo;"
         >
-        </pagination>
+        </app-pager>
       </div>
     </section>
   </div>
