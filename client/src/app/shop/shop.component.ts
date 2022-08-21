@@ -13,7 +13,7 @@ import { ShopParams } from '../shared/models/shopParams';
   styleUrls: ['./shop.component.scss'],
 })
 export class ShopComponent implements OnInit {
-  @ViewChild('search', {static: true}) searchTerm: ElementRef;
+  @ViewChild('search', { static: true }) searchTerm: ElementRef;
 
   products: IProduct[];
   brands: IBrand[];
@@ -88,8 +88,10 @@ export class ShopComponent implements OnInit {
   }
 
   onPageChanged(event: any) {
-    this.shopParams.pageNumber = event;
-    this.getProducts();
+    if (this.hasPageNumberChanged(event) == true) {
+      this.shopParams.pageNumber = event;
+      this.getProducts();
+    }
   }
 
   onSearch() {
@@ -101,5 +103,10 @@ export class ShopComponent implements OnInit {
     this.searchTerm.nativeElement.value = '';
     this.shopParams = new ShopParams();
     this.getProducts();
+  }
+
+  hasPageNumberChanged(event: any) :boolean{
+    if (this.shopParams.pageNumber != event) return true;
+    else return false;
   }
 }
