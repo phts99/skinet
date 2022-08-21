@@ -42,24 +42,36 @@
     <!--Main Content-->
     <section class="col-9">
       <div class="d-flex justify-content-between align-items-center pb-2">
-
         <!--Header-->
         <app-paging-header
           [totalCount]="totalCount"
           [pageSize]="this.shopParams.pageSize"
-          [pageNumber]="this.shopParams.pageNumber">
+          [pageNumber]="this.shopParams.pageNumber"
+        >
         </app-paging-header>
 
         <!--Search Bar-->
         <div class="form-inline mt-2">
           <input
+            #search
             class="form-control mr-2"
             style="width: 300px"
             placeholder="Search"
             type="text"
+            (keyup.enter)="onSearch()"
           />
-          <button class="btn btn-outline-primary my-2">Search</button>
-          <button class="btn btn-outline-primary ml-2 my-2">Reset</button>
+
+          <button
+            class="btn btn-outline-primary my-2"
+            (click)="onSearch()"
+          >
+          Search</button>
+
+          <button
+            (click)="onReset()"
+            class="btn btn-outline-primary ml-2 my-2"
+          >
+          Reset</button>
         </div>
       </div>
 
